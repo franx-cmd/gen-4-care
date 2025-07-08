@@ -1,4 +1,3 @@
-
 import { Heart, Users, Phone, Clock, Shield, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,7 +11,7 @@ const Index = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
               <Heart className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-800">CareConnect</span>
+              <span className="text-xl font-bold text-gray-800">Generations for Care</span>
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#about" className="text-gray-600 hover:text-blue-600 transition-colors">About</a>
@@ -32,7 +31,7 @@ const Index = () => {
             <br />Building <span className="text-green-600">Community</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            CareConnect bridges the gap between eager youth volunteers and elderly individuals with chronic illnesses, 
+            Generations for Care bridges the gap between eager youth volunteers and elderly individuals with chronic illnesses, 
             creating meaningful relationships that improve health outcomes and combat loneliness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -73,7 +72,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Why CareConnect Matters
+              Why Generations for Care Matters
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Addressing loneliness and health challenges while empowering youth to make a difference
@@ -134,7 +133,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              How CareConnect Works
+              How Generations for Care Works
             </h2>
             <p className="text-xl text-gray-600">Simple steps to create meaningful connections</p>
           </div>
@@ -215,7 +214,7 @@ const Index = () => {
               Get In Touch
             </h2>
             <p className="text-xl text-gray-600">
-              Ready to start your CareConnect journey? We're here to help.
+              Ready to start your Generations for Care journey? We're here to help.
             </p>
           </div>
           
@@ -229,7 +228,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Heart className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">hello@careconnect.org</span>
+                  <span className="text-gray-700">hello@generationsforcare.org</span>
                 </div>
               </div>
               
@@ -237,7 +236,7 @@ const Index = () => {
                 <h4 className="text-lg font-semibold text-gray-800 mb-4">Partnership Opportunities</h4>
                 <p className="text-gray-600">
                   We're actively seeking partnerships with schools, barangays, and health centers. 
-                  Contact us to learn how we can collaborate to expand CareConnect in your community.
+                  Contact us to learn how we can collaborate to expand Generations for Care in your community.
                 </p>
               </div>
             </div>
@@ -287,14 +286,14 @@ const Index = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <Heart className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">CareConnect</span>
+              <span className="text-xl font-bold">Generations for Care</span>
             </div>
             <div className="text-center md:text-right">
               <p className="text-gray-400">
                 Building bridges between generations, one connection at a time.
               </p>
               <p className="text-sm text-gray-500 mt-2">
-                © 2024 CareConnect. Made with ❤️ for community impact.
+                © 2024 Generations for Care. Made with ❤️ for community impact.
               </p>
             </div>
           </div>
