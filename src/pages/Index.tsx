@@ -1,24 +1,30 @@
 import { Heart, Users, Phone, Clock, Shield, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+      <nav className="bg-card/90 backdrop-blur-sm shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <Heart className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-800">Generations for Care</span>
+              <img 
+                src="/lovable-uploads/a3239f61-7f05-4eef-9077-f9373203ca23.png" 
+                alt="Generations for Care" 
+                className="h-10 w-auto"
+              />
+              <span className="text-xl font-bold text-foreground">Generations for Care</span>
             </div>
             <div className="hidden md:flex space-x-8">
-              <a href="#about" className="text-gray-600 hover:text-blue-600 transition-colors">About</a>
-              <a href="#how-it-works" className="text-gray-600 hover:text-blue-600 transition-colors">How It Works</a>
-              <a href="#volunteer" className="text-gray-600 hover:text-blue-600 transition-colors">Volunteer</a>
-              <a href="#contact" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+              <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link>
+              <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
             </div>
+            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Link to="/support">Request Support</Link>
+            </Button>
           </div>
         </div>
       </nav>
@@ -26,42 +32,46 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
-            Connecting <span className="text-blue-600">Generations</span>,
-            <br />Building <span className="text-green-600">Community</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+            Connecting <span className="text-primary">Generations</span>,
+            <br />Building <span className="text-accent">Community</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Generations for Care bridges the gap between eager youth volunteers and elderly individuals with chronic illnesses, 
             creating meaningful relationships that improve health outcomes and combat loneliness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
-              <Users className="mr-2 h-5 w-5" />
-              Become a Volunteer
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3">
+              <Link to="/volunteer">
+                <Users className="mr-2 h-5 w-5" />
+                Become a Volunteer
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-3">
-              <Heart className="mr-2 h-5 w-5" />
-              Learn More
+            <Button asChild size="lg" variant="outline" className="border-accent text-accent hover:bg-accent/10 px-8 py-3">
+              <Link to="/about">
+                <Heart className="mr-2 h-5 w-5" />
+                Learn More
+              </Link>
             </Button>
           </div>
         </div>
       </section>
 
       {/* Impact Stats */}
-      <section className="py-16 bg-white/50">
+      <section className="py-16 bg-card/50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-6">
-              <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
-              <div className="text-gray-600">Seniors Supported</div>
+              <div className="text-4xl font-bold text-primary mb-2">500+</div>
+              <div className="text-muted-foreground">Seniors Supported</div>
             </div>
             <div className="p-6">
-              <div className="text-4xl font-bold text-green-600 mb-2">200+</div>
-              <div className="text-gray-600">Youth Volunteers</div>
+              <div className="text-4xl font-bold text-accent mb-2">200+</div>
+              <div className="text-muted-foreground">Youth Volunteers</div>
             </div>
             <div className="p-6">
-              <div className="text-4xl font-bold text-orange-600 mb-2">95%</div>
-              <div className="text-gray-600">Improved Wellbeing</div>
+              <div className="text-4xl font-bold text-secondary mb-2">95%</div>
+              <div className="text-muted-foreground">Improved Wellbeing</div>
             </div>
           </div>
         </div>
@@ -71,10 +81,10 @@ const Index = () => {
       <section id="about" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Why Generations for Care Matters
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Addressing loneliness and health challenges while empowering youth to make a difference
             </p>
           </div>
@@ -83,45 +93,47 @@ const Index = () => {
             <div>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 p-3 rounded-full">
-                    <Heart className="h-6 w-6 text-blue-600" />
+                  <div className="bg-destructive/20 p-3 rounded-full">
+                    <Heart className="h-6 w-6 text-destructive" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Combat Loneliness</h3>
-                    <p className="text-gray-600">Many elderly individuals with chronic conditions suffer from isolation. Regular check-ins provide emotional support and human connection.</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">Combat Loneliness</h3>
+                    <p className="text-muted-foreground">Many elderly individuals with chronic conditions suffer from isolation. Regular check-ins provide emotional support and human connection.</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <Shield className="h-6 w-6 text-green-600" />
+                  <div className="bg-accent/20 p-3 rounded-full">
+                    <Shield className="h-6 w-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Health Support</h3>
-                    <p className="text-gray-600">Assistance with medication management, appointment reminders, and basic health monitoring.</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">Health Support</h3>
+                    <p className="text-muted-foreground">Assistance with medication management, appointment reminders, and basic health monitoring.</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-orange-100 p-3 rounded-full">
-                    <Users className="h-6 w-6 text-orange-600" />
+                  <div className="bg-primary/20 p-3 rounded-full">
+                    <Users className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Youth Empowerment</h3>
-                    <p className="text-gray-600">Structured opportunities for young people to develop empathy, responsibility, and community engagement skills.</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">Youth Empowerment</h3>
+                    <p className="text-muted-foreground">Structured opportunities for young people to develop empathy, responsibility, and community engagement skills.</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-blue-100 to-green-100 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
-              <p className="text-gray-700 mb-6">
+            <div className="bg-gradient-to-br from-primary/20 to-accent/20 p-8 rounded-2xl border">
+              <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
+              <p className="text-muted-foreground mb-6">
                 To create a sustainable, replicable model for intergenerational support that improves emotional well-being, 
                 medication adherence, and digital literacy among elderly individuals while fostering social responsibility in youth.
               </p>
-              <Button className="bg-gradient-to-r from-blue-600 to-green-600 text-white">
-                Join Our Mission <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link to="/volunteer">
+                  Join Our Mission <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>
@@ -129,53 +141,53 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-gradient-to-r from-blue-50 to-green-50 px-4">
+      <section className="py-20 bg-gradient-to-r from-primary/10 to-accent/10 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               How Generations for Care Works
             </h2>
-            <p className="text-xl text-gray-600">Simple steps to create meaningful connections</p>
+            <p className="text-xl text-muted-foreground">Simple steps to create meaningful connections</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-shadow">
+            <Card className="bg-card/80 backdrop-blur-sm border shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-blue-600" />
+                <div className="bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl text-gray-800">1. Sign Up & Match</CardTitle>
+                <CardTitle className="text-xl text-foreground">1. Sign Up & Match</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-gray-600 text-center">
+                <CardDescription className="text-muted-foreground text-center">
                   Youth volunteers register online and get matched with elderly participants based on location, interests, and availability.
                 </CardDescription>
               </CardContent>
             </Card>
             
-            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-shadow">
+            <Card className="bg-card/80 backdrop-blur-sm border shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center">
-                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="h-8 w-8 text-green-600" />
+                <div className="bg-accent/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="h-8 w-8 text-accent" />
                 </div>
-                <CardTitle className="text-xl text-gray-800">2. Regular Check-ins</CardTitle>
+                <CardTitle className="text-xl text-foreground">2. Regular Check-ins</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-gray-600 text-center">
+                <CardDescription className="text-muted-foreground text-center">
                   Scheduled phone calls or visits provide consistent support, companionship, and assistance with daily health tasks.
                 </CardDescription>
               </CardContent>
             </Card>
             
-            <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-shadow">
+            <Card className="bg-card/80 backdrop-blur-sm border shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="text-center">
-                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-8 w-8 text-orange-600" />
+                <div className="bg-secondary/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-8 w-8 text-secondary" />
                 </div>
-                <CardTitle className="text-xl text-gray-800">3. Support & Kits</CardTitle>
+                <CardTitle className="text-xl text-foreground">3. Support & Kits</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-gray-600 text-center">
+                <CardDescription className="text-muted-foreground text-center">
                   Elderly participants receive physical support kits with pill organizers, health guides, and communication tools.
                 </CardDescription>
               </CardContent>
@@ -185,21 +197,25 @@ const Index = () => {
       </section>
 
       {/* Volunteer Section */}
-      <section id="volunteer" className="py-20 px-4">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-12 text-white text-center">
+          <div className="bg-gradient-to-r from-primary to-accent rounded-3xl p-12 text-primary-foreground text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Make a Difference?</h2>
             <p className="text-xl mb-8 opacity-90">
               Join hundreds of youth volunteers already making an impact in their communities
             </p>
             <div className="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3">
-                <Users className="mr-2 h-5 w-5" />
-                Volunteer Now
+              <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90 px-8 py-3">
+                <Link to="/volunteer">
+                  <Users className="mr-2 h-5 w-5" />
+                  Volunteer Now
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                <Phone className="mr-2 h-5 w-5" />
-                Request Support
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 py-3">
+                <Link to="/support">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Request Support
+                </Link>
               </Button>
             </div>
           </div>
@@ -207,34 +223,34 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white px-4">
+      <section className="py-20 bg-card px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Get In Touch
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-muted-foreground">
               Ready to start your Generations for Care journey? We're here to help.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-blue-600" />
-                  <span className="text-gray-700">+63 (XXX) XXX-XXXX</span>
+                  <Phone className="h-5 w-5 text-primary" />
+                  <span className="text-foreground">+63 (XXX) XXX-XXXX</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Heart className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">hello@generationsforcare.org</span>
+                  <Heart className="h-5 w-5 text-accent" />
+                  <span className="text-foreground">hello@generationsforcare.org</span>
                 </div>
               </div>
               
               <div className="mt-8">
-                <h4 className="text-lg font-semibold text-gray-800 mb-4">Partnership Opportunities</h4>
-                <p className="text-gray-600">
+                <h4 className="text-lg font-semibold text-foreground mb-4">Partnership Opportunities</h4>
+                <p className="text-muted-foreground">
                   We're actively seeking partnerships with schools, barangays, and health centers. 
                   Contact us to learn how we can collaborate to expand Generations for Care in your community.
                 </p>
@@ -248,30 +264,30 @@ const Index = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                  <label className="block text-sm font-medium text-foreground mb-2">Name</label>
                   <input
                     type="text"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-foreground mb-2">Email</label>
                   <input
                     type="email"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="your.email@example.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                  <label className="block text-sm font-medium text-foreground mb-2">Message</label>
                   <textarea
                     rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="Tell us how we can help..."
                   />
                 </div>
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                   Send Message
                 </Button>
               </CardContent>
@@ -281,18 +297,22 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
+      <footer className="bg-foreground text-background py-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Heart className="h-8 w-8 text-blue-400" />
+              <img 
+                src="/lovable-uploads/a3239f61-7f05-4eef-9077-f9373203ca23.png" 
+                alt="Generations for Care" 
+                className="h-8 w-auto brightness-0 invert"
+              />
               <span className="text-xl font-bold">Generations for Care</span>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-gray-400">
+              <p className="text-background/70">
                 Building bridges between generations, one connection at a time.
               </p>
-              <p className="text-sm text-gray-500 mt-2">
+              <p className="text-sm text-background/50 mt-2">
                 © 2024 Generations for Care. Made with ❤️ for community impact.
               </p>
             </div>
