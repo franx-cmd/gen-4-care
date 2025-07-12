@@ -18,28 +18,28 @@ All colors MUST be HSL.
     --popover: 0 0% 98%; /* light gray */
     --popover-foreground: 15 100% 20%;
 
-    --primary: 21 100% 50%; /* #ff6500 orange */
+    --primary: 21 70% 45%; /* Desaturated orange */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 51 94% 51%; /* #fcbe08 yellow */
+    --secondary: 51 60% 45%; /* Desaturated yellow */
     --secondary-foreground: 15 100% 20%;
 
     --muted: 0 0% 95%; /* light gray */
     --muted-foreground: 15 100% 45%;
 
-    --accent: 70 45% 40%; /* #a2bb23 green */
+    --accent: 70 35% 35%; /* Desaturated green */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 351 78% 63%; /* #ea556e pink/red */
+    --destructive: 351 55% 55%; /* Desaturated pink/red */
     --destructive-foreground: 0 0% 100%;
 
-    --success: 70 45% 40%; /* #a2bb23 green */
+    --success: 70 35% 35%; /* Desaturated green */
     --success-foreground: 0 0% 100%;
 
-    --info: 191 60% 55%; /* #3abacf blue/cyan */
+    --info: 191 40% 45%; /* Desaturated blue/cyan */
     --info-foreground: 0 0% 100%;
 
-    --warning: 51 94% 51%; /* #fcbe08 yellow */
+    --warning: 51 60% 45%; /* Desaturated yellow */
     --warning-foreground: 15 100% 20%;
 
     --border: 44 50% 85%;
@@ -68,28 +68,28 @@ All colors MUST be HSL.
     --popover: 15 100% 10%;
     --popover-foreground: 44 87% 94%;
 
-    --primary: 21 100% 50%; /* #ff6500 orange */
+    --primary: 21 70% 45%; /* Desaturated orange */
     --primary-foreground: 44 87% 94%;
 
-    --secondary: 51 94% 51%; /* #fcbe08 yellow */
+    --secondary: 51 60% 45%; /* Desaturated yellow */
     --secondary-foreground: 15 100% 20%;
 
     --muted: 15 100% 15%;
     --muted-foreground: 44 50% 65%;
 
-    --accent: 70 45% 40%; /* #a2bb23 green */
+    --accent: 70 35% 35%; /* Desaturated green */
     --accent-foreground: 44 87% 94%;
 
-    --destructive: 351 78% 63%; /* #ea556e pink/red */
+    --destructive: 351 55% 55%; /* Desaturated pink/red */
     --destructive-foreground: 44 87% 94%;
 
-    --success: 70 45% 40%; /* #a2bb23 green */
+    --success: 70 35% 35%; /* Desaturated green */
     --success-foreground: 44 87% 94%;
 
-    --info: 191 60% 55%; /* #3abacf blue/cyan */
+    --info: 191 40% 45%; /* Desaturated blue/cyan */
     --info-foreground: 44 87% 94%;
 
-    --warning: 51 94% 51%; /* #fcbe08 yellow */
+    --warning: 51 60% 45%; /* Desaturated yellow */
     --warning-foreground: 15 100% 20%;
 
     --border: 15 100% 20%;

@@ -16,7 +16,7 @@ const Index = () => {
                 alt="Generations for Care" 
                 className="h-10 w-auto"
               />
-              <span className="text-xl font-bold text-foreground">Generations for Care</span>
+              <span className="text-xl font-bold text-foreground">Generations For Care</span>
             </div>
             <div className="hidden md:flex space-x-8">
               <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link>
@@ -79,7 +79,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why Generations for Care Matters
+              Why Generations For Care Matters
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Addressing loneliness and health challenges while empowering youth to make a difference
@@ -142,7 +142,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              How Generations for Care Works
+              How Generations For Care Works
             </h2>
             <p className="text-xl text-muted-foreground">Simple steps to create meaningful connections</p>
           </div>
@@ -227,7 +227,7 @@ const Index = () => {
               Get In Touch
             </h2>
             <p className="text-xl text-muted-foreground">
-              Ready to start your Generations for Care journey? We're here to help.
+              Ready to start your Generations For Care journey? We're here to help.
             </p>
           </div>
           
@@ -241,7 +241,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Heart className="h-5 w-5 text-accent" />
-                  <span className="text-foreground">hello@generationsforcare.org</span>
+                  <span className="text-foreground">generationsforcare@gmail.com</span>
                 </div>
               </div>
               
@@ -249,7 +249,7 @@ const Index = () => {
                 <h4 className="text-lg font-semibold text-foreground mb-4">Partnership Opportunities</h4>
                 <p className="text-muted-foreground">
                   We're actively seeking partnerships with schools and nursing homes. 
-                  Contact us to learn how we can collaborate to expand Generations for Care in your community.
+                  Contact us to learn how we can collaborate to expand Generations For Care in your community.
                 </p>
               </div>
             </div>
@@ -300,17 +300,17 @@ const Index = () => {
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <img 
                 src="/lovable-uploads/a3239f61-7f05-4eef-9077-f9373203ca23.png" 
-                alt="Generations for Care" 
+                alt="Generations For Care"
                 className="h-8 w-auto brightness-0 invert"
               />
-              <span className="text-xl font-bold">Generations for Care</span>
+              <span className="text-xl font-bold">Generations For Care</span>
             </div>
             <div className="text-center md:text-right">
               <p className="text-background/70">
                 Building bridges between generations, one connection at a time.
               </p>
               <p className="text-sm text-background/50 mt-2">
-                © 2024 Generations for Care. Made with ❤️ for community impact.
+                © 2024 Generations For Care. Made with ❤️ for community impact.
               </p>
             </div>
           </div>
