@@ -22,9 +22,6 @@ const Index = () => {
               <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link>
               <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
             </div>
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link to="/support">Request Support</Link>
-            </Button>
           </div>
         </div>
       </nav>
@@ -211,7 +208,7 @@ const Index = () => {
                   Volunteer Now
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 py-3">
+              <Button asChild size="lg" variant="outline" className="border-background bg-background text-foreground hover:bg-background/90 px-8 py-3">
                 <Link to="/support">
                   <Phone className="mr-2 h-5 w-5" />
                   Request Support
@@ -251,7 +248,7 @@ const Index = () => {
               <div className="mt-8">
                 <h4 className="text-lg font-semibold text-foreground mb-4">Partnership Opportunities</h4>
                 <p className="text-muted-foreground">
-                  We're actively seeking partnerships with schools, barangays, and health centers. 
+                  We're actively seeking partnerships with schools and nursing homes. 
                   Contact us to learn how we can collaborate to expand Generations for Care in your community.
                 </p>
               </div>

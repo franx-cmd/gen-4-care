@@ -12,32 +12,32 @@ All colors MUST be HSL.
     --background: 0 0% 100%; /* white */
     --foreground: 15 100% 20%; /* Dark brown for text */
 
-    --card: 44 87% 94%; /* #faf3e4 cream */
+    --card: 0 0% 98%; /* light gray */
     --card-foreground: 15 100% 20%;
 
-    --popover: 44 87% 94%; /* #faf3e4 cream */
+    --popover: 0 0% 98%; /* light gray */
     --popover-foreground: 15 100% 20%;
 
     --primary: 21 100% 50%; /* #ff6500 orange */
-    --primary-foreground: 44 87% 94%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 51 94% 51%; /* #fcbe08 yellow */
     --secondary-foreground: 15 100% 20%;
 
-    --muted: 44 87% 94%; /* #faf3e4 cream */
+    --muted: 0 0% 95%; /* light gray */
     --muted-foreground: 15 100% 45%;
 
     --accent: 70 45% 40%; /* #a2bb23 green */
-    --accent-foreground: 44 87% 94%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 351 78% 63%; /* #ea556e pink/red */
-    --destructive-foreground: 44 87% 94%;
+    --destructive-foreground: 0 0% 100%;
 
     --success: 70 45% 40%; /* #a2bb23 green */
-    --success-foreground: 44 87% 94%;
+    --success-foreground: 0 0% 100%;
 
     --info: 191 60% 55%; /* #3abacf blue/cyan */
-    --info-foreground: 44 87% 94%;
+    --info-foreground: 0 0% 100%;
 
     --warning: 51 94% 51%; /* #fcbe08 yellow */
     --warning-foreground: 15 100% 20%;
