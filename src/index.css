@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Generations for Care Color Scheme */
-    --background: 44 87% 94%; /* #faf3e4 cream */
+    --background: 0 0% 100%; /* white */
     --foreground: 15 100% 20%; /* Dark brown for text */
 
     --card: 44 87% 94%; /* #faf3e4 cream */
