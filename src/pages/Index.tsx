@@ -54,25 +54,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Impact Stats */}
-      <section className="py-16 bg-card/50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="p-6">
-              <div className="text-4xl font-bold text-primary mb-2">500+</div>
-              <div className="text-muted-foreground">Seniors Supported</div>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold text-accent mb-2">200+</div>
-              <div className="text-muted-foreground">Youth Volunteers</div>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold text-secondary mb-2">95%</div>
-              <div className="text-muted-foreground">Improved Wellbeing</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* About Section */}
       <section id="about" className="py-20 px-4">
