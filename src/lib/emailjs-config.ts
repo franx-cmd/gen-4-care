@@ -14,7 +14,7 @@ export const EMAILJS_CONFIG = {
   // Service IDs - create one for each form type
   SERVICES: {
     CONTACT: 'service_gfc_contact',
-    SUPPORT: 'service_gfc_support', 
+    SUPPORT: 'service_kphaxqf', 
     VOLUNTEER: 'service_gfc_volunteer'
   },
   
