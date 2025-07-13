@@ -2,8 +2,111 @@ import { Users, Heart, Clock, Award, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import emailjs from '@emailjs/browser';
+import { useToast } from "@/components/ui/use-toast";
 
 const Volunteer = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    age: '',
+    email: '',
+    phone: '',
+    school: '',
+    availability: [] as string[],
+    communication: '',
+    experience: '',
+    agreeTraining: false,
+    agreeCommitment: false
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    
+    if (type === 'checkbox') {
+      const checkbox = e.target as HTMLInputElement;
+      if (name === 'agreeTraining' || name === 'agreeCommitment') {
+        setFormData(prev => ({
+          ...prev,
+          [name]: checkbox.checked
+        }));
+      } else {
+        if (checkbox.checked) {
+          setFormData(prev => ({
+            ...prev,
+            availability: [...prev.availability, value]
+          }));
+        } else {
+          setFormData(prev => ({
+            ...prev,
+            availability: prev.availability.filter(item => item !== value)
+          }));
+        }
+      }
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        'service_gfc_volunteer',
+        'template_volunteer_form',
+        {
+          to_email: 'generationsforcare@gmail.com',
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          age: formData.age,
+          email: formData.email,
+          phone: formData.phone,
+          school: formData.school,
+          availability: formData.availability.join(', '),
+          communication: formData.communication,
+          experience: formData.experience,
+        },
+        'your_public_key'
+      );
+
+      toast({
+        title: "Volunteer application submitted!",
+        description: "We'll contact you within 1-2 weeks to discuss next steps and training.",
+      });
+
+      setFormData({
+        firstName: '',
+        lastName: '',
+        age: '',
+        email: '',
+        phone: '',
+        school: '',
+        availability: [],
+        communication: '',
+        experience: '',
+        agreeTraining: false,
+        agreeCommitment: false
+      });
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      toast({
+        title: "Failed to submit application",
+        description: "Please try again or contact us directly at generationsforcare@gmail.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -121,118 +224,174 @@ const Volunteer = () => {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">First Name</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="Your first name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Last Name</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="Your last name"
+                  />
+                </div>
+              </div>
+
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">First Name</label>
-                <input
-                  type="text"
+                <label className="block text-sm font-medium text-foreground mb-2">Age</label>
+                <select 
+                  name="age"
+                  value={formData.age}
+                  onChange={handleChange}
+                  required
                   className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="Your first name"
+                >
+                  <option value="">Select your age</option>
+                  <option value="13-15">13-15</option>
+                  <option value="16-18">16-18</option>
+                  <option value="19-21">19-21</option>
+                  <option value="22-25">22-25</option>
+                  <option value="26+">26+</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="your.email@example.com"
                 />
               </div>
+
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Last Name</label>
+                <label className="block text-sm font-medium text-foreground mb-2">Phone Number</label>
                 <input
-                  type="text"
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
                   className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="Your last name"
+                  placeholder="+63 XXX XXX XXXX"
                 />
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">Age</label>
-              <select className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary">
-                <option>Select your age</option>
-                <option>13-15</option>
-                <option>16-18</option>
-                <option>19-21</option>
-                <option>22-25</option>
-                <option>26+</option>
-              </select>
-            </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">School/Organization (if applicable)</label>
+                <input
+                  type="text"
+                  name="school"
+                  value={formData.school}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Your school or organization"
+                />
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">Email</label>
-              <input
-                type="email"
-                className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="your.email@example.com"
-              />
-            </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">Availability</label>
+                <div className="space-y-2">
+                  {[
+                    'Weekdays (after school)',
+                    'Weekends',
+                    'Evenings'
+                  ].map((availabilityOption) => (
+                    <label key={availabilityOption} className="flex items-center space-x-2">
+                      <input 
+                        type="checkbox" 
+                        value={availabilityOption}
+                        checked={formData.availability.includes(availabilityOption)}
+                        onChange={handleChange}
+                        className="rounded border-border" 
+                      />
+                      <span className="text-foreground">{availabilityOption}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">Phone Number</label>
-              <input
-                type="tel"
-                className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="+63 XXX XXX XXXX"
-              />
-            </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">Preferred Communication</label>
+                <select 
+                  name="communication"
+                  value={formData.communication}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">Select communication preference</option>
+                  <option value="Phone calls">Phone calls</option>
+                  <option value="In-person visits">In-person visits</option>
+                  <option value="Both phone and visits">Both phone and visits</option>
+                </select>
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">School/Organization (if applicable)</label>
-              <input
-                type="text"
-                className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Your school or organization"
-              />
-            </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">Experience & Motivation</label>
+                <textarea
+                  rows={4}
+                  name="experience"
+                  value={formData.experience}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Tell us about any relevant experience and why you want to volunteer with Generations for Care"
+                />
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">Availability</label>
               <div className="space-y-2">
-                <label className="flex items-center space-x-2">
-                  <input type="checkbox" className="rounded border-border" />
-                  <span className="text-foreground">Weekdays (after school)</span>
+                <label className="flex items-start space-x-2">
+                  <input 
+                    type="checkbox" 
+                    name="agreeTraining"
+                    checked={formData.agreeTraining}
+                    onChange={handleChange}
+                    required
+                    className="rounded border-border mt-1" 
+                  />
+                  <span className="text-sm text-muted-foreground">
+                    I agree to complete the required training before being matched with an elderly partner.
+                  </span>
                 </label>
-                <label className="flex items-center space-x-2">
-                  <input type="checkbox" className="rounded border-border" />
-                  <span className="text-foreground">Weekends</span>
-                </label>
-                <label className="flex items-center space-x-2">
-                  <input type="checkbox" className="rounded border-border" />
-                  <span className="text-foreground">Evenings</span>
+                <label className="flex items-start space-x-2">
+                  <input 
+                    type="checkbox" 
+                    name="agreeCommitment"
+                    checked={formData.agreeCommitment}
+                    onChange={handleChange}
+                    required
+                    className="rounded border-border mt-1" 
+                  />
+                  <span className="text-sm text-muted-foreground">
+                    I commit to providing consistent support for at least 3 months.
+                  </span>
                 </label>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">Preferred Communication</label>
-              <select className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary">
-                <option>Phone calls</option>
-                <option>In-person visits</option>
-                <option>Both phone and visits</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">Experience & Motivation</label>
-              <textarea
-                rows={4}
-                className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Tell us about any relevant experience and why you want to volunteer with Generations for Care"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="flex items-start space-x-2">
-                <input type="checkbox" className="rounded border-border mt-1" />
-                <span className="text-sm text-muted-foreground">
-                  I agree to complete the required training before being matched with an elderly partner.
-                </span>
-              </label>
-              <label className="flex items-start space-x-2">
-                <input type="checkbox" className="rounded border-border mt-1" />
-                <span className="text-sm text-muted-foreground">
-                  I commit to providing consistent support for at least 3 months.
-                </span>
-              </label>
-            </div>
-
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              Submit Volunteer Application
-            </Button>
+              <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                {isSubmitting ? 'Submitting...' : 'Submit Volunteer Application'}
+              </Button>
+            </form>
 
             <div className="text-center text-sm text-muted-foreground">
               <Clock className="h-4 w-4 inline mr-1" />
